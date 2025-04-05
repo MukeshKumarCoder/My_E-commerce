@@ -6,6 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/userSlice";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const navList = [
   "categories",
@@ -19,10 +20,12 @@ const NavBar = () => {
   const cart = useSelector((state) => state.cart);
   const { token } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logout());
     toast.success("Logout successful!");
+    navigate("/")
     window.location.reload();
   };
 
