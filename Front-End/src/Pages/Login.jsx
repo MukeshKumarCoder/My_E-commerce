@@ -19,8 +19,8 @@ const Login = () => {
     e.preventDefault();
     const url =
       currentState === "Login"
-        ? "http://localhost:8080/auth/login"
-        : "http://localhost:8080/auth/signup";
+        ? "https://my-e-commerce-1-uh4h.onrender.com/auth/login"
+        : "https://my-e-commerce-1-uh4h.onrender.com/auth/signup";
 
     try {
       const res = await axios.post(url, userData, {
