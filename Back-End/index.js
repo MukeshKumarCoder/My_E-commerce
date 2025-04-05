@@ -1,11 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const dataBase = require("./config/db");
+const dataBase = require("./Config/DB");
 const session = require("express-session");
 
 const userRoutes = require("./Routes/userRoutes");
-const cartRoutes = require("./Routes/cartRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,7 +31,6 @@ dataBase.connect();
 
 // Routes
 app.use("/auth", userRoutes);
-app.use("/cart", cartRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
