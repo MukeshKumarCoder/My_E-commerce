@@ -21,8 +21,7 @@ app.use(
 app.use(
   cors({
     origin:
-      // "https://your-vercel-app.vercel.app",
-      "http://localhost:5173",
+       "https://my-e-commerce-frontend.onrender.com",
     credentials: true,
   })
 );
