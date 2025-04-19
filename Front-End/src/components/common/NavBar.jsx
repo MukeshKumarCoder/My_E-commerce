@@ -73,9 +73,11 @@ const NavBar = () => {
           )}
 
           <a href="/cart" className="relative">
-            <div className="flex justify-center items-center p-2 absolute top-[-15px] right-[-20px] text-2xl  bg-pink-600 w-6 h-6 rounded-full">
-              <span className="text-sm text-white">{totalItems}</span>
-            </div>
+            {totalItems > 0 && (
+              <div className="flex justify-center items-center p-2 absolute top-[-15px] right-[-20px] text-2xl  bg-pink-600 w-6 h-6 rounded-full">
+                <span className="text-sm text-white">{totalItems}</span>
+              </div>
+            )}
             <div>
               {" "}
               <FaShoppingCart className="text-xl text-pink-600" />

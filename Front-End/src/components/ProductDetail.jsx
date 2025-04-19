@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -24,6 +25,11 @@ const ProductDetail = () => {
     getDataDetails();
   }, [id]);
 
+  const handleClick = () => {
+    dispatch(addToCart(product));
+    toast.success("Item Added Successfully");
+  };
+
   if (!product) return <p className="text-center text-5xl mt-20">Loading...</p>;
 
   return (
@@ -34,14 +40,10 @@ const ProductDetail = () => {
           Title: <span className="text-black text-base ">{product.title}</span>
         </h2>
         <p>Price: ${product.price}</p>
-        <p>
-         Description: {product.description}
-        </p>
-        <p>
-         Rating: {product.rating.rate}
-        </p>
+        <p>Description: {product.description}</p>
+        <p>Rating: {product.rating.rate}</p>
         <button
-          onClick={() => dispatch(addToCart(product))}
+          onClick={() => handleClick(product)}
           className="border border-pink-500 w-fit bg-pink-600 py-2 px-3 rounded-md cursor-pointer text-white"
         >
           Add to Cart

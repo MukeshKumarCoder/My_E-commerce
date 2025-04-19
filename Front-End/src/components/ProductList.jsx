@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
+import { toast } from "react-toastify";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -23,6 +24,11 @@ const ProductList = () => {
     getData();
   }, []);
 
+  const handleClick = (product) => {
+    dispatch(addToCart(product));
+    toast.success("Item Added Successfully");
+  };
+
   return (
     <div className="w-full flex justify-center mt-5 py-5">
       <div className="w-11/12 grid grid-cols-5 gap-5 m-auto">
@@ -37,7 +43,7 @@ const ProductList = () => {
             </Link>
             <p>Price: ${product.price}</p>
             <button
-              onClick={() => dispatch(addToCart(product))}
+              onClick={() => handleClick(product)}
               className="border border-pink-500 w-fit bg-pink-600 py-2 px-3 rounded-md cursor-pointer text-white"
             >
               Add to Cart

@@ -7,6 +7,7 @@ import Cart from "./components/Cart";
 import Login from "./Pages/Login";
 import TopNav from "./components/common/TopNav";
 import Home from "./Pages/Home";
+import ThankyouPage from "./Pages/ThankyouPage";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/thank-you" element={<ThankyouPage />} />
       </Routes>
     </div>
   );
